@@ -1,0 +1,1171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MCQs on Kinesiology of the Cervical Spine (P1) Quiz</title>
+    <style>
+        :root {
+            --bg-color: #f5f7fa;
+            --container-bg: white;
+            --text-color: #333;
+            --border-color: #ddd;
+            --primary-color: #3498db;
+            --header-color: #2c3e50;
+            --secondary-text: #7f8c8d;
+            --progress-bg: #ecf0f1;
+            --question-bg: #f8f9fa;
+            --option-bg: #fff;
+            --option-hover: #f1f8ff;
+            --option-selected: #d1ecf1;
+            --correct-bg: #d4edda;
+            --correct-border: #28a745;
+            --incorrect-bg: #f8d7da;
+            --incorrect-border: #dc3545;
+            --button-bg: #3498db;
+            --button-hover: #2980b9;
+            --button-disabled: #bdc3c7;
+            --restart-bg: #2ecc71;
+            --restart-hover: #27ae60;
+            --review-bg: #f39c12;
+            --review-hover: #e67e22;
+            --toggle-bg: #ecf0f1;
+            --toggle-slider: white;
+            --toggle-text: #7f8c8d;
+        }
+
+        .dark-mode {
+            --bg-color: #1a1a2e;
+            --container-bg: #16213e;
+            --text-color: #e6e6e6;
+            --border-color: #394867;
+            --primary-color: #4cc9f0;
+            --header-color: #e6e6e6;
+            --secondary-text: #a9a9a9;
+            --progress-bg: #394867;
+            --question-bg: #1f4068;
+            --option-bg: #16213e;
+            --option-hover: #1f4068;
+            --option-selected: #1f4068;
+            --correct-bg: #2d5a2d;
+            --correct-border: #4caf50;
+            --incorrect-bg: #5a2d2d;
+            --incorrect-border: #f44336;
+            --button-bg: #4cc9f0;
+            --button-hover: #3aa8d0;
+            --button-disabled: #5d6d7e;
+            --restart-bg: #2ecc71;
+            --restart-hover: #27ae60;
+            --review-bg: #f39c12;
+            --review-hover: #e67e22;
+            --toggle-bg: #394867;
+            --toggle-slider: #4cc9f0;
+            --toggle-text: #e6e6e6;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            padding: 20px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: var(--container-bg);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s, box-shadow 0.3s;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid var(--primary-color);
+            position: relative;
+        }
+        h1 {
+            color: var(--header-color);
+            margin-bottom: 5px;
+            font-size: 24px;
+            transition: color 0.3s;
+        }
+        .author {
+            color: var(--secondary-text);
+            font-style: italic;
+            margin-bottom: 10px;
+            transition: color 0.3s;
+        }
+        .description {
+            color: var(--secondary-text);
+            margin-bottom: 20px;
+            transition: color 0.3s;
+        }
+        .theme-toggle {
+            position: absolute;
+            top: 35px;
+            right: 0;
+            display: flex;
+            align-items: center;
+        }
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 120px;
+            height: 34px;
+        }
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: var(--toggle-bg);
+            transition: .4s;
+            border-radius: 34px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 10px;
+            font-size: 12px;
+            font-weight: bold;
+            color: var(--toggle-text);
+        }
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 26px;
+            width: 60px;
+            left: 4px;
+            bottom: 4px;
+            background-color: var(--toggle-slider);
+            transition: .4s;
+            border-radius: 34px;
+            z-index: 1;
+        }
+        .slider-text {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+        }
+        .light-text, .dark-text {
+            transition: opacity 0.3s;
+        }
+        .dark-mode .light-text {
+            opacity: 0.5;
+        }
+        .light-text {
+            opacity: 0.5;
+        }
+        .dark-mode .dark-text {
+            opacity: 1;
+        }
+        .dark-text {
+            opacity: 0.5;
+        }
+        input:checked + .slider:before {
+            transform: translateX(52px);
+        }
+        .progress-container {
+            background: var(--progress-bg);
+            border-radius: 5px;
+            margin-bottom: 20px;
+            position: relative;
+            height: 10px;
+            transition: background-color 0.3s;
+        }
+        .progress-bar {
+            height: 100%;
+            background: var(--primary-color);
+            border-radius: 5px;
+            width: 0%;
+            transition: width 0.3s ease, background-color 0.3s;
+        }
+        .stats {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            font-weight: bold;
+            color: var(--header-color);
+            transition: color 0.3s;
+        }
+        .question {
+            background: var(--question-bg);
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            transition: background-color 0.3s;
+        }
+        .question-number {
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            transition: color 0.3s;
+        }
+        .question-text {
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+        .options {
+            display: grid;
+            grid-gap: 10px;
+        }
+        .option {
+            padding: 12px 15px;
+            background: var(--option-bg);
+            border: 2px solid var(--border-color);
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        .option:hover {
+            background: var(--option-hover);
+            border-color: var(--primary-color);
+        }
+        .option.selected {
+            background: var(--option-selected);
+            border-color: var(--primary-color);
+        }
+        .option.correct {
+            background: var(--correct-bg);
+            border-color: var(--correct-border);
+        }
+        .option.incorrect {
+            background: var(--incorrect-bg);
+            border-color: var(--incorrect-border);
+        }
+        .feedback {
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 15px;
+            display: none;
+        }
+        .feedback.correct {
+            background: var(--correct-bg);
+            color: var(--text-color);
+            border: 1px solid var(--correct-border);
+            display: block;
+        }
+        .feedback.incorrect {
+            background: var(--incorrect-bg);
+            color: var(--text-color);
+            border: 1px solid var(--incorrect-border);
+            display: block;
+        }
+        .navigation {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+        }
+        button {
+            padding: 10px 20px;
+            background: var(--button-bg);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background 0.3s;
+        }
+        button:hover {
+            background: var(--button-hover);
+        }
+        button:disabled {
+            background: var(--button-disabled);
+            cursor: not-allowed;
+        }
+        .results {
+            text-align: center;
+            padding: 30px;
+            display: none;
+        }
+        .score {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: var(--header-color);
+        }
+        .score-value {
+            font-size: 48px;
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+        .restart-btn {
+            margin-top: 20px;
+            background: var(--restart-bg);
+        }
+        .restart-btn:hover {
+            background: var(--restart-hover);
+        }
+        .review-btn {
+            margin-top: 20px;
+            background: var(--review-bg);
+        }
+        .review-btn:hover {
+            background: var(--review-hover);
+        }
+        .review-section {
+            margin-top: 30px;
+            padding: 20px;
+            background: var(--question-bg);
+            border-radius: 8px;
+            display: none;
+        }
+        .review-title {
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: var(--header-color);
+            text-align: center;
+        }
+        .review-question {
+            margin-bottom: 20px;
+            padding: 15px;
+            border-left: 4px solid var(--incorrect-border);
+            background: var(--container-bg);
+            border-radius: 4px;
+        }
+        .review-question-number {
+            font-weight: bold;
+            color: var(--incorrect-border);
+            margin-bottom: 8px;
+        }
+        .review-question-text {
+            margin-bottom: 10px;
+        }
+        .review-answer {
+            margin-top: 8px;
+            font-weight: bold;
+        }
+        .review-correct {
+            color: var(--correct-border);
+        }
+        .review-explanation {
+            margin-top: 5px;
+            font-style: italic;
+            color: var(--secondary-text);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>MCQs on Kinesiology of the Cervical Spine (P1) Quiz</h1>
+            <p class="author">Dr. Samy Salem</p>
+            <p class="description">Test your knowledge of Cervical Spine Kinesiology Part 1: anatomy, curvatures, ligaments, and biomechanics</p>
+            <div class="theme-toggle">
+                <label class="switch">
+                    <input type="checkbox" id="dark-mode-toggle">
+                    <span class="slider">
+                        <div class="slider-text">
+                            <span class="light-text">Light</span>
+                            <span class="dark-text">Dark</span>
+                        </div>
+                    </span>
+                </label>
+            </div>
+        </header>
+
+        <div class="progress-container">
+            <div class="progress-bar" id="progress-bar"></div>
+        </div>
+
+        <div class="stats">
+            <div>Question: <span id="current-question">1</span>/<span id="total-questions">40</span></div>
+            <div>Score: <span id="score">0</span>/<span id="total-score">40</span></div>
+        </div>
+
+        <div id="quiz-container">
+            <!-- Questions will be inserted here by JavaScript -->
+        </div>
+
+        <div class="navigation">
+            <button id="prev-btn" disabled>Previous</button>
+            <button id="next-btn">Next</button>
+        </div>
+
+        <div id="results" class="results">
+            <div class="score">Your Score: <span class="score-value" id="final-score">0</span>/40</div>
+            <p id="performance-message"></p>
+            <button class="restart-btn" id="restart-btn">Restart Quiz</button>
+            <button class="review-btn" id="review-btn">Review Incorrect Answers</button>
+        </div>
+
+        <div id="review-section" class="review-section">
+            <h2 class="review-title">Questions Answered Incorrectly</h2>
+            <div id="incorrect-questions-list"></div>
+        </div>
+    </div>
+
+    <script>
+        // Quiz data from Kinesiology of the Cervical Spine (P1) DOCX (extracted from Kinesiology of the Cervical Spine (MCQs P1).docx)
+        const originalQuizData = [
+            {
+                question: "Which of the following bones is part of the appendicular skeleton rather than the axial skeleton?",
+                options: [
+                    "Sternum",
+                    "Clavicle",
+                    "Cranium",
+                    "Ribs"
+                ],
+                answer: 1,
+                explanation: "Page 2"
+            },
+            {
+                question: "At which joints do the axial and appendicular skeletons articulate superiorly?",
+                options: [
+                    "Sacroiliac joints",
+                    "Atlanto-occipital joints",
+                    "Sternoclavicular joints",
+                    "Zygapophysial joints"
+                ],
+                answer: 2,
+                explanation: "Page 2"
+            },
+            {
+                question: "Which bone forms most of the posterior base of the skull?",
+                options: [
+                    "Temporal bone",
+                    "Frontal bone",
+                    "Occipital bone",
+                    "Sphenoid bone"
+                ],
+                answer: 2,
+                explanation: "Page 5"
+            },
+            {
+                question: "The mastoid process is located just posterior to the ear and is a key landmark of which bone?",
+                options: [
+                    "Temporal bone",
+                    "Parietal bone",
+                    "Occipital bone",
+                    "Zygomatic bone"
+                ],
+                answer: 0,
+                explanation: "Page 4"
+            },
+            {
+                question: "Which structure is a large opening at the base of the skull that allows passage of the spinal cord?",
+                options: [
+                    "Intervertebral foramen",
+                    "External acoustic meatus",
+                    "Foramen magnum",
+                    "Vertebral canal"
+                ],
+                answer: 2,
+                explanation: "Page 7"
+            },
+            {
+                question: "The occipital condyles articulate with which structure to form the atlanto-occipital joint?",
+                options: [
+                    "Axis (C2)",
+                    "Atlas (C1)",
+                    "Mastoid process",
+                    "Superior articular process of C2"
+                ],
+                answer: 1,
+                explanation: "Page 7"
+            },
+            {
+                question: "How many thoracic vertebrae are typically present in the human vertebral column?",
+                options: [
+                    "5",
+                    "7",
+                    "10",
+                    "12"
+                ],
+                answer: 3,
+                explanation: "Page 8"
+            },
+            {
+                question: "Which component is considered the primary weight-bearing structure of a vertebra?",
+                options: [
+                    "Spinous process",
+                    "Vertebral body",
+                    "Lamina",
+                    "Pedicle"
+                ],
+                answer: 1,
+                explanation: "Page 9"
+            },
+            {
+                question: "What is the primary function of the intervertebral disc?",
+                options: [
+                    "Houses and protects the spinal cord",
+                    "Serves as an attachment site for muscles",
+                    "Shock absorption and spacing between vertebrae",
+                    "Connects the vertebral body to the posterior elements"
+                ],
+                answer: 2,
+                explanation: "Page 9"
+            },
+            {
+                question: "Which element connects the vertebral body to the posterior elements of the vertebra and transfers forces?",
+                options: [
+                    "Pedicle",
+                    "Lamina",
+                    "Transverse process",
+                    "Spinous process"
+                ],
+                answer: 0,
+                explanation: "Page 11"
+            },
+            {
+                question: "Which structure forms a thin vertical plate connecting the spinous process to the transverse processes?",
+                options: [
+                    "Pedicle",
+                    "Lamina",
+                    "Vertebral body",
+                    "Articular process"
+                ],
+                answer: 1,
+                explanation: "Page 11"
+            },
+            {
+                question: "What is the primary function of the vertebral canal?",
+                options: [
+                    "Passageway for exiting spinal nerve roots",
+                    "Attachment site for the ligamentum flavum",
+                    "Houses and protects the spinal cord",
+                    "Provides vertical support to the trunk"
+                ],
+                answer: 2,
+                explanation: "Page 13"
+            },
+            {
+                question: "Through which structure do the spinal nerve roots exit the vertebral canal?",
+                options: [
+                    "Vertebral foramen",
+                    "Foramen magnum",
+                    "Central canal",
+                    "Intervertebral foramen"
+                ],
+                answer: 3,
+                explanation: "Page 13"
+            },
+            {
+                question: "The apophyseal (facet) joints are formed by the articulation of which structures?",
+                options: [
+                    "Vertebral bodies and intervertebral discs",
+                    "Spinous processes and interspinous ligaments",
+                    "Superior and inferior articular processes",
+                    "Pedicles and laminae"
+                ],
+                answer: 2,
+                explanation: "Page 15"
+            },
+            {
+                question: "In a normal vertebral column, the superior articular facets face in which direction?",
+                options: [
+                    "Anteriorly",
+                    "Posteriorly",
+                    "Medially",
+                    "Laterally"
+                ],
+                answer: 1,
+                explanation: "Page 15"
+            },
+            {
+                question: "How many total vertebral segments make up a typical vertebral column before sacral and coccygeal fusion occurs?",
+                options: [
+                    "24",
+                    "29",
+                    "31",
+                    "33"
+                ],
+                answer: 3,
+                explanation: "Page 16"
+            },
+            {
+                question: "Which of the following best describes spinal lordosis?",
+                options: [
+                    "The spine is convex anteriorly and concave posteriorly",
+                    "The spine is concave anteriorly and convex posteriorly",
+                    "A lateral deviation of the spinal column",
+                    "A rigid fusion of the sacrococcygeal segments"
+                ],
+                answer: 0,
+                explanation: "Page 18"
+            },
+            {
+                question: "Which regions of the vertebral column naturally exhibit kyphosis?",
+                options: [
+                    "Cervical and lumbar",
+                    "Thoracic and sacrococcygeal",
+                    "Cervical and thoracic",
+                    "Lumbar and sacral"
+                ],
+                answer: 1,
+                explanation: "Page 18"
+            },
+            {
+                question: "How does spinal extension typically affect the natural curvatures of the spine?",
+                options: [
+                    "It increases thoracic kyphosis and flattens lumbar lordosis",
+                    "It flattens both cervical and lumbar lordosis",
+                    "It increases cervical and lumbar lordosis and decreases thoracic kyphosis",
+                    "It increases all spinal curvatures simultaneously"
+                ],
+                answer: 2,
+                explanation: "Page 19"
+            },
+            {
+                question: "At what developmental stage does cervical lordosis begin to develop?",
+                options: [
+                    "During the fetal period",
+                    "When infants begin lifting the head in prone",
+                    "When standing and walking begin",
+                    "During adolescence"
+                ],
+                answer: 1,
+                explanation: "Page 21"
+            },
+            {
+                question: "The development of lumbar lordosis is most strongly associated with which activity?",
+                options: [
+                    "Lifting the head in prone",
+                    "Sitting unsupported",
+                    "Standing and walking",
+                    "The fetal position"
+                ],
+                answer: 2,
+                explanation: "Page 21"
+            },
+            {
+                question: "The line of gravity (LOG) in an ideal standing posture typically passes in which relation to the hip joints?",
+                options: [
+                    "Anterior",
+                    "Posterior",
+                    "Directly through the center",
+                    "Medial"
+                ],
+                answer: 1,
+                explanation: "Page 24"
+            },
+            {
+                question: "If the line of gravity (LOG) passes posterior to the lumbar spine, what is the resulting biomechanical effect?",
+                options: [
+                    "It produces a flexion torque",
+                    "It produces an extension torque, supporting lumbar lordosis",
+                    "It flattens the lumbar lordosis",
+                    "It increases thoracic kyphosis"
+                ],
+                answer: 1,
+                explanation: "Page 25"
+            },
+            {
+                question: "Which spinal ligament is composed of approximately 80% elastin and 20% collagen, giving it high elasticity?",
+                options: [
+                    "Anterior longitudinal ligament",
+                    "Posterior longitudinal ligament",
+                    "Interspinous ligament",
+                    "Ligamentum flavum"
+                ],
+                answer: 3,
+                explanation: "Page 27"
+            },
+            {
+                question: "Where is the ligamentum flavum anatomically located?",
+                options: [
+                    "Connecting the tips of adjacent spinous processes",
+                    "Running along the anterior surfaces of vertebral bodies",
+                    "Between adjacent transverse processes",
+                    "From the anterior surface of one lamina to the posterior surface of the lamina below"
+                ],
+                answer: 3,
+                explanation: "Page 27"
+            },
+            {
+                question: "What is a key protective function of the high elasticity of the ligamentum flavum?",
+                options: [
+                    "It prevents the ligament from buckling inward into the vertebral canal during full extension",
+                    "It strictly limits spinal extension",
+                    "It restrains posterior disc displacement",
+                    "It actively prevents lateral flexion"
+                ],
+                answer: 0,
+                explanation: "Page 28"
+            },
+            {
+                question: "The interspinous ligaments are primarily designed to resist which specific movement?",
+                options: [
+                    "Spinal extension",
+                    "Lateral flexion",
+                    "Spinal flexion (hyperflexion)",
+                    "Axial rotation"
+                ],
+                answer: 2,
+                explanation: "Page 29"
+            },
+            {
+                question: "Which specific ligament connects the tips of adjacent spinous processes?",
+                options: [
+                    "Interspinous ligament",
+                    "Supraspinous ligament",
+                    "Ligamentum nuchae",
+                    "Intertransverse ligament"
+                ],
+                answer: 1,
+                explanation: "Page 30"
+            },
+            {
+                question: "The ligamentum nuchae extends from the cervical spinous processes to which specific bony structure?",
+                options: [
+                    "Mastoid process",
+                    "Basilar part of occipital bone",
+                    "External occipital protuberance",
+                    "Superior articular facet of C1"
+                ],
+                answer: 2,
+                explanation: "Page 31"
+            },
+            {
+                question: "Which ligament becomes taut primarily during contralateral lateral flexion?",
+                options: [
+                    "Anterior longitudinal ligament",
+                    "Intertransverse ligament",
+                    "Supraspinous ligament",
+                    "Posterior longitudinal ligament"
+                ],
+                answer: 1,
+                explanation: "Page 33"
+            },
+            {
+                question: "Which ligament runs along the anterior surfaces of vertebral bodies from the occipital bone down to the sacrum?",
+                options: [
+                    "Anterior longitudinal ligament",
+                    "Posterior longitudinal ligament",
+                    "Ligamentum flavum",
+                    "Supraspinous ligament"
+                ],
+                answer: 0,
+                explanation: "Page 34"
+            },
+            {
+                question: "A primary biomechanical function of the Anterior Longitudinal Ligament (ALL) is to:",
+                options: [
+                    "Resist spinal flexion",
+                    "Resist spinal extension",
+                    "Become taut during lateral flexion",
+                    "Protect the posterior aspect of the spinal cord"
+                ],
+                answer: 1,
+                explanation: "Page 34"
+            },
+            {
+                question: "Where is the Posterior Longitudinal Ligament (PLL) anatomically situated?",
+                options: [
+                    "Along the anterior surfaces of the vertebral bodies",
+                    "Along the posterior surfaces of vertebral bodies within the vertebral canal",
+                    "Between the laminae of adjacent vertebrae",
+                    "Connecting the spinous processes"
+                ],
+                answer: 1,
+                explanation: "Page 35"
+            },
+            {
+                question: "During which specific spinal movement does the Posterior Longitudinal Ligament (PLL) become taut?",
+                options: [
+                    "Extension",
+                    "Flexion",
+                    "Axial rotation",
+                    "Lateral flexion"
+                ],
+                answer: 1,
+                explanation: "Page 35"
+            },
+            {
+                question: "The capsular ligaments of the facet joints are characterized biomechanically by being:",
+                options: [
+                    "Rigid and entirely inelastic",
+                    "Taut in neutral posture and lax near end-range movements",
+                    "Relatively lax in neutral posture but increasingly taut near end-range movements",
+                    "Devoid of collagen"
+                ],
+                answer: 2,
+                explanation: "Page 36"
+            },
+            {
+                question: "In general, anterior spinal ligaments are stretched and become taut during which physiological movement?",
+                options: [
+                    "Extension",
+                    "Flexion",
+                    "Lateral flexion",
+                    "Rotation"
+                ],
+                answer: 0,
+                explanation: "Page 37"
+            },
+            {
+                question: "Which of the following is considered a posterior ligament that is stretched and becomes taut during spinal flexion?",
+                options: [
+                    "Anterior longitudinal ligament",
+                    "Transverse ligament",
+                    "Ligamentum flavum",
+                    "Anterior atlanto-occipital membrane"
+                ],
+                answer: 2,
+                explanation: "Page 37"
+            },
+            {
+                question: "Which structure represents the cartilaginous joint located between the superior and inferior surfaces of an intervertebral disc and adjacent vertebral bodies?",
+                options: [
+                    "Apophyseal joint",
+                    "Zygapophysial joint",
+                    "Atlanto-occipital joint",
+                    "Interbody joint"
+                ],
+                answer: 3,
+                explanation: "Page 10"
+            },
+            {
+                question: "The superior nuchal line of the occipital bone serves as an attachment site for which of the following muscles?",
+                options: [
+                    "Sternocleidomastoid",
+                    "Semispinalis capitis",
+                    "Trapezius and splenius capitis",
+                    "Rectus capitis posterior major"
+                ],
+                answer: 2,
+                explanation: "Page 6"
+            },
+            {
+                question: "The developing fetal spine consists primarily of which type of sagittal curve?",
+                options: [
+                    "Primary curve (kyphotic)",
+                    "Secondary curve (lordotic)",
+                    "Lateral curve (scoliotic)",
+                    "Tertiary curve (kyphotic)"
+                ],
+                answer: 0,
+                explanation: "Page 21"
+            }
+        ];
+
+        // Function to shuffle an array (Fisher-Yates algorithm)
+        function shuffleArray(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+            return array;
+        }
+
+        // Function to create a randomized version of the quiz data
+        function createRandomizedQuizData() {
+            const randomizedData = [];
+            
+            originalQuizData.forEach(question => {
+                // Create a copy of the original question
+                const randomizedQuestion = {
+                    question: question.question,
+                    options: [...question.options], // Copy options array
+                    originalAnswer: question.answer, // Store original answer index
+                    explanation: question.explanation
+                };
+                
+                // Create an array of indices [0, 1, 2, 3]
+                const indices = [0, 1, 2, 3];
+                
+                // Shuffle the indices
+                shuffleArray(indices);
+                
+                // Create a new options array with shuffled order
+                const shuffledOptions = indices.map(index => question.options[index]);
+                
+                // Find the new position of the correct answer
+                const newAnswerIndex = indices.indexOf(question.answer);
+                
+                // Update the question with shuffled options and new answer
+                randomizedQuestion.options = shuffledOptions;
+                randomizedQuestion.answer = newAnswerIndex;
+                
+                randomizedData.push(randomizedQuestion);
+            });
+            
+            return randomizedData;
+        }
+
+        // Create randomized quiz data
+        let quizData = createRandomizedQuizData();
+
+        // Quiz state variables
+        let currentQuestion = 0;
+        let score = 0;
+        let userAnswers = new Array(quizData.length).fill(null);
+        let incorrectQuestions = [];
+
+        // DOM elements
+        const quizContainer = document.getElementById('quiz-container');
+        const prevBtn = document.getElementById('prev-btn');
+        const nextBtn = document.getElementById('next-btn');
+        const progressBar = document.getElementById('progress-bar');
+        const currentQuestionEl = document.getElementById('current-question');
+        const totalQuestionsEl = document.getElementById('total-questions');
+        const scoreEl = document.getElementById('score');
+        const totalScoreEl = document.getElementById('total-score');
+        const resultsContainer = document.getElementById('results');
+        const finalScoreEl = document.getElementById('final-score');
+        const performanceMessageEl = document.getElementById('performance-message');
+        const restartBtn = document.getElementById('restart-btn');
+        const reviewBtn = document.getElementById('review-btn');
+        const reviewSection = document.getElementById('review-section');
+        const incorrectQuestionsList = document.getElementById('incorrect-questions-list');
+        const darkModeToggle = document.getElementById('dark-mode-toggle');
+        const lightText = document.querySelector('.light-text');
+        const darkText = document.querySelector('.dark-text');
+
+        // Initialize quiz
+        function initQuiz() {
+            totalQuestionsEl.textContent = quizData.length;
+            totalScoreEl.textContent = quizData.length;
+            showQuestion();
+            updateProgressBar();
+            
+            // Initialize dark mode based on system preference
+            if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                document.body.classList.add('dark-mode');
+                darkModeToggle.checked = true;
+                updateToggleText(true);
+            } else {
+                updateToggleText(false);
+            }
+            
+            // Event listeners
+            prevBtn.addEventListener('click', showPreviousQuestion);
+            nextBtn.addEventListener('click', showNextQuestion);
+            restartBtn.addEventListener('click', restartQuiz);
+            reviewBtn.addEventListener('click', showIncorrectQuestions);
+            darkModeToggle.addEventListener('change', toggleDarkMode);
+        }
+
+        // Toggle dark mode
+        function toggleDarkMode() {
+            const isDarkMode = darkModeToggle.checked;
+            document.body.classList.toggle('dark-mode', isDarkMode);
+            updateToggleText(isDarkMode);
+        }
+
+        // Update toggle text opacity
+        function updateToggleText(isDarkMode) {
+            if (isDarkMode) {
+                lightText.style.opacity = '0.5';
+                darkText.style.opacity = '1';
+            } else {
+                lightText.style.opacity = '1';
+                darkText.style.opacity = '0.5';
+            }
+        }
+
+        // Show current question
+        function showQuestion() {
+            currentQuestionEl.textContent = currentQuestion + 1;
+            scoreEl.textContent = score;
+            
+            const question = quizData[currentQuestion];
+            let optionsHTML = '';
+            
+            question.options.forEach((option, index) => {
+                let optionClass = 'option';
+                if (userAnswers[currentQuestion] === index) {
+                    optionClass += ' selected';
+                    if (index === question.answer) {
+                        optionClass += ' correct';
+                    } else {
+                        optionClass += ' incorrect';
+                    }
+                }
+                
+                optionsHTML += `
+                    <div class="${optionClass}" data-index="${index}">
+                        ${String.fromCharCode(65 + index)}) ${option}
+                    </div>
+                `;
+            });
+            
+            let feedbackHTML = '';
+            if (userAnswers[currentQuestion] !== null) {
+                const isCorrect = userAnswers[currentQuestion] === question.answer;
+                const correctLetter = String.fromCharCode(65 + question.answer);
+                const correctAnswerText = question.options[question.answer];
+                
+                feedbackHTML = `
+                    <div class="feedback ${isCorrect ? 'correct' : 'incorrect'}">
+                        ${isCorrect ? '✓ Correct!' : '✗ Incorrect!'} 
+                        ${!isCorrect ? `Correct answer: ${correctLetter}) ${correctAnswerText}` : ''}
+                        <br><br>Explanation: ${question.explanation}
+                    </div>
+                `;
+            }
+            
+            quizContainer.innerHTML = `
+                <div class="question">
+                    <div class="question-number">Question ${currentQuestion + 1}/${quizData.length}</div>
+                    <div class="question-text">${question.question}</div>
+                    <div class="options">${optionsHTML}</div>
+                    ${feedbackHTML}
+                </div>
+            `;
+            
+            // Add event listeners to options
+            const optionElements = quizContainer.querySelectorAll('.option');
+            optionElements.forEach(option => {
+                option.addEventListener('click', selectOption);
+            });
+            
+            // Update navigation buttons
+            prevBtn.disabled = currentQuestion === 0;
+            nextBtn.textContent = currentQuestion === quizData.length - 1 ? 'Finish Quiz' : 'Next';
+        }
+
+        // Select an option
+        function selectOption(e) {
+            if (userAnswers[currentQuestion] !== null) return; // Already answered
+            
+            const selectedOption = e.currentTarget;
+            const selectedIndex = parseInt(selectedOption.dataset.index);
+            
+            userAnswers[currentQuestion] = selectedIndex;
+            
+            // Check if answer is correct
+            if (selectedIndex === quizData[currentQuestion].answer) {
+                score++;
+                scoreEl.textContent = score;
+            } else {
+                // Add to incorrect questions list
+                incorrectQuestions.push({
+                    question: quizData[currentQuestion].question,
+                    userAnswer: selectedIndex,
+                    correctAnswer: quizData[currentQuestion].answer,
+                    options: quizData[currentQuestion].options,
+                    explanation: quizData[currentQuestion].explanation,
+                    questionNumber: currentQuestion + 1
+                });
+            }
+            
+            showQuestion();
+            updateProgressBar();
+        }
+
+        // Show next question
+        function showNextQuestion() {
+            if (currentQuestion < quizData.length - 1) {
+                currentQuestion++;
+                showQuestion();
+            } else {
+                showResults();
+            }
+        }
+
+        // Show previous question
+        function showPreviousQuestion() {
+            if (currentQuestion > 0) {
+                currentQuestion--;
+                showQuestion();
+            }
+        }
+
+        // Update progress bar
+        function updateProgressBar() {
+            const progress = ((currentQuestion + 1) / quizData.length) * 100;
+            progressBar.style.width = `${progress}%`;
+        }
+
+        // Show results
+        function showResults() {
+            quizContainer.style.display = 'none';
+            document.querySelector('.navigation').style.display = 'none';
+            document.querySelector('.progress-container').style.display = 'none';
+            document.querySelector('.stats').style.display = 'none';
+            
+            finalScoreEl.textContent = score;
+            
+            // Performance message
+            const percentage = (score / quizData.length) * 100;
+            let message = '';
+            if (percentage >= 80) {
+                message = 'Excellent! You have a strong understanding of Cervical Spine Kinesiology Part 1.';
+            } else if (percentage >= 60) {
+                message = 'Good job! You have a solid grasp of the material.';
+            } else if (percentage >= 40) {
+                message = 'Not bad! Review the material and try again.';
+            } else {
+                message = 'Keep studying! Review the lectures and try again.';
+            }
+            
+            performanceMessageEl.textContent = message;
+            resultsContainer.style.display = 'block';
+            
+            // Show review button only if there are incorrect answers
+            if (incorrectQuestions.length > 0) {
+                reviewBtn.style.display = 'inline-block';
+            } else {
+                reviewBtn.style.display = 'none';
+            }
+        }
+
+        // Show incorrect questions
+        function showIncorrectQuestions() {
+            resultsContainer.style.display = 'none';
+            reviewSection.style.display = 'block';
+            
+            let incorrectHTML = '';
+            incorrectQuestions.forEach((item, index) => {
+                const correctLetter = String.fromCharCode(65 + item.correctAnswer);
+                const userLetter = String.fromCharCode(65 + item.userAnswer);
+                
+                incorrectHTML += `
+                    <div class="review-question">
+                        <div class="review-question-number">Question ${item.questionNumber}</div>
+                        <div class="review-question-text">${item.question}</div>
+                        <div>Your answer: ${userLetter}) ${item.options[item.userAnswer]}</div>
+                        <div class="review-answer review-correct">Correct answer: ${correctLetter}) ${item.options[item.correctAnswer]}</div>
+                        <div class="review-explanation">${item.explanation}</div>
+                    </div>
+                `;
+            });
+            
+            incorrectQuestionsList.innerHTML = incorrectHTML;
+        }
+
+        // Restart quiz
+        function restartQuiz() {
+            currentQuestion = 0;
+            score = 0;
+            userAnswers = new Array(quizData.length).fill(null);
+            incorrectQuestions = [];
+            
+            // Re-randomize the quiz data when restarting
+            quizData = createRandomizedQuizData();
+            
+            quizContainer.style.display = 'block';
+            document.querySelector('.navigation').style.display = 'flex';
+            document.querySelector('.progress-container').style.display = 'block';
+            document.querySelector('.stats').style.display = 'flex';
+            resultsContainer.style.display = 'none';
+            reviewSection.style.display = 'none';
+            
+            showQuestion();
+            updateProgressBar();
+        }
+
+        // Initialize the quiz when the page loads
+        window.onload = initQuiz;
+    </script>
+</body>
+</html>

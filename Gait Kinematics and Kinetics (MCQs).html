@@ -1,0 +1,1280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MCQs on Gait Kinematics and Kinetics Quiz</title>
+    <style>
+        :root {
+            --bg-color: #f5f7fa;
+            --container-bg: white;
+            --text-color: #333;
+            --border-color: #ddd;
+            --primary-color: #3498db;
+            --header-color: #2c3e50;
+            --secondary-text: #7f8c8d;
+            --progress-bg: #ecf0f1;
+            --question-bg: #f8f9fa;
+            --option-bg: #fff;
+            --option-hover: #f1f8ff;
+            --option-selected: #d1ecf1;
+            --correct-bg: #d4edda;
+            --correct-border: #28a745;
+            --incorrect-bg: #f8d7da;
+            --incorrect-border: #dc3545;
+            --button-bg: #3498db;
+            --button-hover: #2980b9;
+            --button-disabled: #bdc3c7;
+            --restart-bg: #2ecc71;
+            --restart-hover: #27ae60;
+            --review-bg: #f39c12;
+            --review-hover: #e67e22;
+            --toggle-bg: #ecf0f1;
+            --toggle-slider: white;
+            --toggle-text: #7f8c8d;
+        }
+
+        .dark-mode {
+            --bg-color: #1a1a2e;
+            --container-bg: #16213e;
+            --text-color: #e6e6e6;
+            --border-color: #394867;
+            --primary-color: #4cc9f0;
+            --header-color: #e6e6e6;
+            --secondary-text: #a9a9a9;
+            --progress-bg: #394867;
+            --question-bg: #1f4068;
+            --option-bg: #16213e;
+            --option-hover: #1f4068;
+            --option-selected: #1f4068;
+            --correct-bg: #2d5a2d;
+            --correct-border: #4caf50;
+            --incorrect-bg: #5a2d2d;
+            --incorrect-border: #f44336;
+            --button-bg: #4cc9f0;
+            --button-hover: #3aa8d0;
+            --button-disabled: #5d6d7e;
+            --restart-bg: #2ecc71;
+            --restart-hover: #27ae60;
+            --review-bg: #f39c12;
+            --review-hover: #e67e22;
+            --toggle-bg: #394867;
+            --toggle-slider: #4cc9f0;
+            --toggle-text: #e6e6e6;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            padding: 20px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: var(--container-bg);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s, box-shadow 0.3s;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid var(--primary-color);
+            position: relative;
+        }
+        h1 {
+            color: var(--header-color);
+            margin-bottom: 5px;
+            font-size: 24px;
+            transition: color 0.3s;
+        }
+        .author {
+            color: var(--secondary-text);
+            font-style: italic;
+            margin-bottom: 10px;
+            transition: color 0.3s;
+        }
+        .description {
+            color: var(--secondary-text);
+            margin-bottom: 20px;
+            transition: color 0.3s;
+        }
+        .theme-toggle {
+            position: absolute;
+            top: 35px;
+            right: 0;
+            display: flex;
+            align-items: center;
+        }
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 120px;
+            height: 34px;
+        }
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: var(--toggle-bg);
+            transition: .4s;
+            border-radius: 34px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 10px;
+            font-size: 12px;
+            font-weight: bold;
+            color: var(--toggle-text);
+        }
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 26px;
+            width: 60px;
+            left: 4px;
+            bottom: 4px;
+            background-color: var(--toggle-slider);
+            transition: .4s;
+            border-radius: 34px;
+            z-index: 1;
+        }
+        .slider-text {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+        }
+        .light-text, .dark-text {
+            transition: opacity 0.3s;
+        }
+        .dark-mode .light-text {
+            opacity: 0.5;
+        }
+        .light-text {
+            opacity: 0.5;
+        }
+        .dark-mode .dark-text {
+            opacity: 1;
+        }
+        .dark-text {
+            opacity: 0.5;
+        }
+        input:checked + .slider:before {
+            transform: translateX(52px);
+        }
+        .progress-container {
+            background: var(--progress-bg);
+            border-radius: 5px;
+            margin-bottom: 20px;
+            position: relative;
+            height: 10px;
+            transition: background-color 0.3s;
+        }
+        .progress-bar {
+            height: 100%;
+            background: var(--primary-color);
+            border-radius: 5px;
+            width: 0%;
+            transition: width 0.3s ease, background-color 0.3s;
+        }
+        .stats {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            font-weight: bold;
+            color: var(--header-color);
+            transition: color 0.3s;
+        }
+        .question {
+            background: var(--question-bg);
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            transition: background-color 0.3s;
+        }
+        .question-number {
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            transition: color 0.3s;
+        }
+        .question-text {
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+        .options {
+            display: grid;
+            grid-gap: 10px;
+        }
+        .option {
+            padding: 12px 15px;
+            background: var(--option-bg);
+            border: 2px solid var(--border-color);
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        .option:hover {
+            background: var(--option-hover);
+            border-color: var(--primary-color);
+        }
+        .option.selected {
+            background: var(--option-selected);
+            border-color: var(--primary-color);
+        }
+        .option.correct {
+            background: var(--correct-bg);
+            border-color: var(--correct-border);
+        }
+        .option.incorrect {
+            background: var(--incorrect-bg);
+            border-color: var(--incorrect-border);
+        }
+        .feedback {
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 15px;
+            display: none;
+        }
+        .feedback.correct {
+            background: var(--correct-bg);
+            color: var(--text-color);
+            border: 1px solid var(--correct-border);
+            display: block;
+        }
+        .feedback.incorrect {
+            background: var(--incorrect-bg);
+            color: var(--text-color);
+            border: 1px solid var(--incorrect-border);
+            display: block;
+        }
+        .navigation {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+        }
+        button {
+            padding: 10px 20px;
+            background: var(--button-bg);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background 0.3s;
+        }
+        button:hover {
+            background: var(--button-hover);
+        }
+        button:disabled {
+            background: var(--button-disabled);
+            cursor: not-allowed;
+        }
+        .results {
+            text-align: center;
+            padding: 30px;
+            display: none;
+        }
+        .score {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: var(--header-color);
+        }
+        .score-value {
+            font-size: 48px;
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+        .restart-btn {
+            margin-top: 20px;
+            background: var(--restart-bg);
+        }
+        .restart-btn:hover {
+            background: var(--restart-hover);
+        }
+        .review-btn {
+            margin-top: 20px;
+            background: var(--review-bg);
+        }
+        .review-btn:hover {
+            background: var(--review-hover);
+        }
+        .review-section {
+            margin-top: 30px;
+            padding: 20px;
+            background: var(--question-bg);
+            border-radius: 8px;
+            display: none;
+        }
+        .review-title {
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: var(--header-color);
+            text-align: center;
+        }
+        .review-question {
+            margin-bottom: 20px;
+            padding: 15px;
+            border-left: 4px solid var(--incorrect-border);
+            background: var(--container-bg);
+            border-radius: 4px;
+        }
+        .review-question-number {
+            font-weight: bold;
+            color: var(--incorrect-border);
+            margin-bottom: 8px;
+        }
+        .review-question-text {
+            margin-bottom: 10px;
+        }
+        .review-answer {
+            margin-top: 8px;
+            font-weight: bold;
+        }
+        .review-correct {
+            color: var(--correct-border);
+        }
+        .review-explanation {
+            margin-top: 5px;
+            font-style: italic;
+            color: var(--secondary-text);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>MCQs on Gait Kinematics and Kinetics Quiz</h1>
+            <p class="author">Dr. Samy Salem</p>
+            <p class="description">Test your knowledge of Gait Kinematics and Kinetics: gait cycle phases, Center of Mass, Ground Reaction Force, and muscle activity</p>
+            <div class="theme-toggle">
+                <label class="switch">
+                    <input type="checkbox" id="dark-mode-toggle">
+                    <span class="slider">
+                        <div class="slider-text">
+                            <span class="light-text">Light</span>
+                            <span class="dark-text">Dark</span>
+                        </div>
+                    </span>
+                </label>
+            </div>
+        </header>
+
+        <div class="progress-container">
+            <div class="progress-bar" id="progress-bar"></div>
+        </div>
+
+        <div class="stats">
+            <div>Question: <span id="current-question">1</span>/<span id="total-questions">50</span></div>
+            <div>Score: <span id="score">0</span>/<span id="total-score">50</span></div>
+        </div>
+
+        <div id="quiz-container">
+            <!-- Questions will be inserted here by JavaScript -->
+        </div>
+
+        <div class="navigation">
+            <button id="prev-btn" disabled>Previous</button>
+            <button id="next-btn">Next</button>
+        </div>
+
+        <div id="results" class="results">
+            <div class="score">Your Score: <span class="score-value" id="final-score">0</span>/50</div>
+            <p id="performance-message"></p>
+            <button class="restart-btn" id="restart-btn">Restart Quiz</button>
+            <button class="review-btn" id="review-btn">Review Incorrect Answers</button>
+        </div>
+
+        <div id="review-section" class="review-section">
+            <h2 class="review-title">Questions Answered Incorrectly</h2>
+            <div id="incorrect-questions-list"></div>
+        </div>
+    </div>
+
+    <script>
+        // Quiz data from Gait Kinematics and Kinetics PDF (extracted from Gait Kinematics and Kinetics (MCQs).pdf)
+        const originalQuizData = [
+            {
+                question: "The determinants of gait work together to optimize the path of the Center of Mass (COM). If a patient loses the ability to perform a lateral pelvic tilt during mid-stance, what biomechanical inefficiency would occur?",
+                options: [
+                    "The COM would experience an excessive vertical drop.",
+                    "The COM would experience an unnecessary vertical rise.",
+                    "The COM would shift excessively from side to side.",
+                    "The COM would completely stop moving forward."
+                ],
+                answer: 1,
+                explanation: "Page 17"
+            },
+            {
+                question: "According to the general rules of gait kinetics, when the Ground Reaction Force (GRF) vector causes the desired kinematic joint motion, the opposite muscle acts eccentrically. Applying this logic to the ankle during the Loading Response phase, which muscle group is active and how?",
+                options: [
+                    "Dorsiflexors acting eccentrically",
+                    "Dorsiflexors acting concentrically",
+                    "Plantarflexors acting eccentrically",
+                    "Plantarflexors acting concentrically"
+                ],
+                answer: 0,
+                explanation: "Page 45"
+            },
+            {
+                question: "A researcher notes that a subject's right step length is 72 cm, but their total stride length is only 100 cm. What is the most logical conclusion about this subject's gait parameters?",
+                options: [
+                    "They have a perfectly symmetrical gait.",
+                    "They have an abnormally long left step length.",
+                    "They have an abnormally short left step length.",
+                    "Their foot progression angle is excessively large."
+                ],
+                answer: 2,
+                explanation: "Page 14"
+            },
+            {
+                question: "Consider the relationship between single limb support and double stance phases. If single limb support accounts for 40% of the gait cycle per limb, what is the logical percentage of total time spent in initial double stance during one full gait cycle?",
+                options: [
+                    "10%",
+                    "20%",
+                    "40%",
+                    "60%"
+                ],
+                answer: 0,
+                explanation: "Page 13"
+            },
+            {
+                question: "During Terminal Stance, the hip naturally reaches 10-20 degrees of hyperextension. If a patient has a severe contracture that restricts their hip from extending past 0 degrees neutral, which phase of the stance would be most directly disrupted?",
+                options: [
+                    "Initial Contact",
+                    "Loading Response",
+                    "Terminal Stance",
+                    "Mid-swing"
+                ],
+                answer: 2,
+                explanation: "Page 27"
+            },
+            {
+                question: "What is the normal distribution ratio of the stance phase compared to the swing phase during a standard gait cycle?",
+                options: [
+                    "40% stance, 60% swing",
+                    "50% stance, 50% swing",
+                    "60% stance, 40% swing",
+                    "70% stance, 30% swing"
+                ],
+                answer: 2,
+                explanation: "Page 2"
+            },
+            {
+                question: "Which subphase of gait is defined by the foot just making contact with the ground, representing exactly 2% of the gait cycle?",
+                options: [
+                    "Loading response",
+                    "Mid stance",
+                    "Initial contact",
+                    "Pre-swing"
+                ],
+                answer: 2,
+                explanation: "Page 4"
+            },
+            {
+                question: "During which stance phase is the limb completely straight with the body positioned vertically directly above it?",
+                options: [
+                    "Initial contact",
+                    "Loading response",
+                    "Mid stance",
+                    "Terminal stance"
+                ],
+                answer: 2,
+                explanation: "Page 6"
+            },
+            {
+                question: "Pre-swing is characterized as the phase extending from 50 - 60% of the gait cycle. Which anatomical contact point defines this phase?",
+                options: [
+                    "Toes only contacting the ground",
+                    "Full foot contact",
+                    "Heel strike",
+                    "Foot clearing the ground entirely"
+                ],
+                answer: 0,
+                explanation: "Page 8"
+            },
+            {
+                question: "What is the primary biomechanical function of pelvic rotation during the gait cycle?",
+                options: [
+                    "To control the vertical rise of the COM",
+                    "To control the vertical descend of the COM by decreasing the amount of femoral flexion/extension",
+                    "To increase the foot progression angle",
+                    "To limit side-to-side translation of the COM"
+                ],
+                answer: 1,
+                explanation: "Page 16"
+            },
+            {
+                question: "What role does the 10 to 15 degrees of knee flexion from initial contact to mid-stance serve?",
+                options: [
+                    "It acts as a limb lengthener to prevent the COM from dropping.",
+                    "It produces a coil/shock absorption effect that prevents unnecessary vertical rise of the COM.",
+                    "It locks the midfoot to provide stability for heel rise.",
+                    "It decreases the step width to maintain balance."
+                ],
+                answer: 1,
+                explanation: "Page 18"
+            },
+            {
+                question: "The ankle mechanism effectively lengthens the limb on two specific occasions during the gait cycle to prevent an unnecessary drop of the COM. When do these two lengthenings occur?",
+                options: [
+                    "Heel strike (DF position) and Pre-swing (PF position)",
+                    "Loading response (PF) and Mid-stance (DF)",
+                    "Mid-swing (DF) and Terminal swing (Neutral)",
+                    "Initial contact (Neutral) and Terminal stance (DF)"
+                ],
+                answer: 0,
+                explanation: "Page 19"
+            },
+            {
+                question: "Which mechanism avoids abrupt changes in velocity and direction of the COM, turning a series of 'falls' into fluid forward motion?",
+                options: [
+                    "The foot mechanism 'rockers'",
+                    "Normal knee valgus",
+                    "Pelvic obliquity",
+                    "Femoral anteversion"
+                ],
+                answer: 0,
+                explanation: "Page 20"
+            },
+            {
+                question: "How does normal knee valgus specifically optimize the path of the Center of Mass (COM)?",
+                options: [
+                    "It controls the vertical drop of the COM.",
+                    "It minimizes anterior-posterior translation of the COM.",
+                    "It controls lateral, side-to-side COM displacement by reducing the Base of Support (BOS) area.",
+                    "It prevents excessive hip extension during terminal stance."
+                ],
+                answer: 2,
+                explanation: "Page 22"
+            },
+            {
+                question: "What is the normal physiological range for the foot progression angle (the angle between the longitudinal axis of the foot and the line of gait)?",
+                options: [
+                    "0 to 2 degrees",
+                    "5 to 7 degrees",
+                    "10 to 15 degrees",
+                    "15 to 20 degrees"
+                ],
+                answer: 1,
+                explanation: "Page 14"
+            },
+            {
+                question: "Which spatial parameter represents the horizontal distance between two opposite heel contact mid-points, normally measuring 7 to 10 cm?",
+                options: [
+                    "Stride length",
+                    "Step length",
+                    "Step width",
+                    "Foot progression angle"
+                ],
+                answer: 2,
+                explanation: "Page 14"
+            },
+            {
+                question: "At Initial Contact, what is the expected kinematic position of the hip joint?",
+                options: [
+                    "0 degrees (Neutral)",
+                    "10 degrees extension",
+                    "20 degrees flexion",
+                    "30 degrees flexion"
+                ],
+                answer: 3,
+                explanation: "Page 24"
+            },
+            {
+                question: "During the Loading Response phase, the knee typically flexes to what degree to assist with shock absorption?",
+                options: [
+                    "5 degrees",
+                    "15-20 degrees",
+                    "35-40 degrees",
+                    "60-65 degrees"
+                ],
+                answer: 1,
+                explanation: "Page 25"
+            },
+            {
+                question: "During Mid-stance, as the tibia moves forward over the fixed foot, what is the expected ankle kinematic position?",
+                options: [
+                    "15 degrees plantarflexion",
+                    "0 degrees (neutral)",
+                    "5-10 degrees dorsiflexion",
+                    "20-30 degrees plantarflexion"
+                ],
+                answer: 2,
+                explanation: "Page 26"
+            },
+            {
+                question: "To adequately clear the toes during the Initial Swing phase, the knee must rapidly flex. What is the kinematic range for knee flexion during this phase?",
+                options: [
+                    "15-20 degrees",
+                    "35-40 degrees",
+                    "40-60 degrees",
+                    "0 degrees (Full extension)"
+                ],
+                answer: 2,
+                explanation: "Page 29"
+            },
+            {
+                question: "What is the maximum knee flexion angle normally achieved during the Mid-swing phase to ensure foot clearance?",
+                options: [
+                    "15-20 degrees",
+                    "35-40 degrees",
+                    "60-65 degrees",
+                    "90 degrees"
+                ],
+                answer: 2,
+                explanation: "Page 30"
+            },
+            {
+                question: "During Terminal Swing, the knee must prepare for weight-bearing. What is the required kinematic position of the knee during this phase?",
+                options: [
+                    "0 degrees (Extended)",
+                    "15 degrees flexion",
+                    "30 degrees flexion",
+                    "5 degrees hyperextension"
+                ],
+                answer: 0,
+                explanation: "Page 31"
+            },
+            {
+                question: "Which critical frontal plane kinematic event occurs at the calcaneus during the Loading Response to unlock the foot and increase flexibility for weight transfer?",
+                options: [
+                    "Inverting to 5 degrees",
+                    "Everting",
+                    "Remaining strictly neutral",
+                    "Maximum dorsiflexion"
+                ],
+                answer: 1,
+                explanation: "Page 34"
+            },
+            {
+                question: "During Terminal Stance, the calcaneus inverts (up to 5 degrees). What is the critical biomechanical purpose of this inversion?",
+                options: [
+                    "It locks the midfoot, suppresses motion, and provides stability for heel rise and forward propulsion.",
+                    "It increases the flexibility of the foot for shock absorption.",
+                    "It lengthens the limb to prevent the COM from dropping.",
+                    "It directly causes contralateral pelvic drop."
+                ],
+                answer: 0,
+                explanation: "Page 36"
+            },
+            {
+                question: "The Center of Pressure (COP) follows a specific path along the plantar surface of the foot. Where is the COP located during the Terminal Stance and Pre-swing phases?",
+                options: [
+                    "Lateral to the heel midpoint",
+                    "The lateral midfoot region",
+                    "The medial forefoot (2nd metatarsal) then the big toe",
+                    "The posterior aspect of the calcaneus"
+                ],
+                answer: 2,
+                explanation: "Page 38"
+            },
+            {
+                question: "The vertical Ground Reaction Force (GRF) exhibits a 'double bump' pattern. When does the vertical GRF reach its minimum (approximately 70% of Body Weight)?",
+                options: [
+                    "Early Stance",
+                    "Mid Stance",
+                    "Late Terminal Stance",
+                    "Pre-Swing"
+                ],
+                answer: 1,
+                explanation: "Page 40"
+            },
+            {
+                question: "At what phases of the gait cycle does the Anterior/Posterior (A/P) Ground Reaction Force reach its maximum anterior force (~20% BW)?",
+                options: [
+                    "Initial Contact and Loading Response",
+                    "Loading Response and Mid Stance",
+                    "Terminal Stance and Pre-Swing",
+                    "Initial Swing and Mid Swing"
+                ],
+                answer: 2,
+                explanation: "Page 40"
+            },
+            {
+                question: "If the GRF vector causes an external flexion moment at a joint, but the kinematic motion is extension, what type of muscle contraction must be occurring?",
+                options: [
+                    "Concentric contraction of the extensors",
+                    "Concentric contraction of the flexors",
+                    "Eccentric contraction of the extensors",
+                    "Eccentric contraction of the flexors"
+                ],
+                answer: 0,
+                explanation: "Page 43"
+            },
+            {
+                question: "During Initial Contact, the GRF vector is posterior to the ankle, creating a plantarflexion moment. Since the kinematic motion is also plantarflexion, how do the dorsiflexors act?",
+                options: [
+                    "Concentrically to generate power",
+                    "Isometrically to fixate the joint",
+                    "They remain completely inactive",
+                    "Eccentrically to absorb power"
+                ],
+                answer: 3,
+                explanation: "Page 44"
+            },
+            {
+                question: "Which muscle group acts concentrically at the hip during the Pre-swing phase to generate power for the ensuing swing?",
+                options: [
+                    "Hip extensors (Gluteus maximus)",
+                    "Hip flexors (Adductor longus)",
+                    "Hip abductors (Gluteus medius)",
+                    "Knee extensors (Quadriceps)"
+                ],
+                answer: 1,
+                explanation: "Page 48"
+            },
+            {
+                question: "During the Loading Response, the GRF is posterior to the knee, causing a flexion moment. What muscle activity occurs to control this?",
+                options: [
+                    "Hamstrings acting concentrically",
+                    "Hamstrings acting eccentrically",
+                    "Quadriceps acting concentrically",
+                    "Quadriceps acting eccentrically"
+                ],
+                answer: 3,
+                explanation: "Page 45"
+            },
+            {
+                question: "In Mid-stance, the GRF moves anterior to the knee, creating an extension moment. Which muscles actively control the knee in this specific subphase?",
+                options: [
+                    "Quadriceps acting eccentrically",
+                    "Hamstrings acting concentrically",
+                    "Triceps surae acting eccentrically",
+                    "Iliopsoas acting concentrically"
+                ],
+                answer: 2,
+                explanation: "Page 46"
+            },
+            {
+                question: "During Terminal Stance, what is the primary activity at the ankle to control the extreme dorsiflexion moment caused by the anterior GRF?",
+                options: [
+                    "Tibialis anterior acting concentrically",
+                    "Tibialis anterior acting eccentrically",
+                    "Triceps surae acting concentrically",
+                    "Triceps surae acting eccentrically"
+                ],
+                answer: 3,
+                explanation: "Page 47"
+            },
+            {
+                question: "Which muscle group generates the primary propulsive power (concentric action) at the ankle during the Pre-swing phase?",
+                options: [
+                    "Tibialis anterior",
+                    "Quadriceps",
+                    "Triceps surae",
+                    "Iliopsoas"
+                ],
+                answer: 2,
+                explanation: "Page 48"
+            },
+            {
+                question: "The external moment at the subtalar joint during Initial Contact and Loading Response is eversion. Which muscles are actively working to control this?",
+                options: [
+                    "Invertors (Tibialis Anterior and Posterior Tibialis)",
+                    "Evertors (Peroneus Longus and Brevis)",
+                    "Plantarflexors (Gastrocnemius and Soleus)",
+                    "Dorsiflexors only"
+                ],
+                answer: 0,
+                explanation: "Page 49"
+            },
+            {
+                question: "During Initial Swing, a major part of knee flexion is a passive result of what mechanism?",
+                options: [
+                    "Active concentric contraction of the hamstrings",
+                    "Tension from the Achilles tendon",
+                    "Hip flexion creating a 'double pendulum' effect",
+                    "Contraction of the tibialis anterior"
+                ],
+                answer: 2,
+                explanation: "Page 50"
+            },
+            {
+                question: "What is the critical function of the hamstring muscles during the Terminal Swing phase?",
+                options: [
+                    "To forcefully extend the knee for heel strike",
+                    "To act concentrically to flex the hip",
+                    "To contract increasingly strongly to eccentrically limit the rate of knee extension",
+                    "To dorsiflex the ankle in preparation for contact"
+                ],
+                answer: 2,
+                explanation: "Page 52"
+            },
+            {
+                question: "Why does the activity of the tibialis anterior usually increase just prior to initial contact during Terminal Swing?",
+                options: [
+                    "To generate a plantarflexion force",
+                    "In anticipation of the greater contraction forces needed during the loading response",
+                    "To actively extend the knee joint",
+                    "To absorb power from the hip flexors"
+                ],
+                answer: 1,
+                explanation: "Page 52"
+            },
+            {
+                question: "During Terminal Stance, the GRF is posterior to the hip, creating an extension moment. Which muscle group acts eccentrically to control this?",
+                options: [
+                    "Hip flexors (Iliopsoas) and iliofemoral ligament",
+                    "Hip extensors (Gluteus maximus)",
+                    "Hip abductors (Gluteus medius)",
+                    "Knee extensors (Quadriceps)"
+                ],
+                answer: 0,
+                explanation: "Page 47"
+            },
+            {
+                question: "Which subphase of gait is defined as the period from when the toes leave the ground to maximum knee flexion?",
+                options: [
+                    "Pre-swing",
+                    "Initial swing",
+                    "Mid-swing",
+                    "Terminal swing"
+                ],
+                answer: 1,
+                explanation: "Page 10"
+            },
+            {
+                question: "The Mid-swing phase is kinematically defined as spanning between which two specific events?",
+                options: [
+                    "Heel strike to full foot contact",
+                    "Toes leaving the ground to maximum knee flexion",
+                    "Maximum knee flexion to the tibia becoming vertical",
+                    "Vertical tibia to just before initial contact"
+                ],
+                answer: 2,
+                explanation: "Page 11"
+            },
+            {
+                question: "Terminal swing represents the final portion of the gait cycle. What are the start and end defining boundaries of this phase?",
+                options: [
+                    "Maximum knee flexion to heel strike",
+                    "Vertical tibia to just before initial contact",
+                    "Heel off to toe off",
+                    "Toes leave the ground to vertical tibia"
+                ],
+                answer: 1,
+                explanation: "Page 12"
+            },
+            {
+                question: "Terminal double stance accounts for what percentage of the total gait cycle?",
+                options: [
+                    "2%",
+                    "10%",
+                    "20%",
+                    "40%"
+                ],
+                answer: 1,
+                explanation: "Page 13"
+            },
+            {
+                question: "During Mid Stance, the pelvis transitions to having 'less contralateral drop.' What is the critical biomechanical reason this minimal drop is necessary?",
+                options: [
+                    "It maximizes shock absorption at the knee.",
+                    "It locks the midfoot for forward propulsion.",
+                    "It increases the step width for better balance.",
+                    "It prevents lengthening of the swing limb, enabling proper toe clearance."
+                ],
+                answer: 3,
+                explanation: "Page 35"
+            },
+            {
+                question: "Backward pelvic rotation on the stance limb during terminal stance couples with what movement on the swing limb to contribute to overall step length?",
+                options: [
+                    "Contralateral backward rotation",
+                    "Contralateral forward rotation",
+                    "Ipsilateral forward rotation",
+                    "Excessive pelvic drop"
+                ],
+                answer: 1,
+                explanation: "Page 36"
+            },
+            {
+                question: "At Initial Contact, the hip extensor muscles (Gluteus/Hamstrings) act eccentrically. What is their kinetic function regarding power?",
+                options: [
+                    "Power absorption",
+                    "Power generation",
+                    "Isometric fixation",
+                    "Passive stretching"
+                ],
+                answer: 0,
+                explanation: "Page 44"
+            },
+            {
+                question: "During Pre-swing, the GRF is posterior to the knee, producing a flexion moment. As the kinematic motion is also flexion, what muscle activity is described at the knee?",
+                options: [
+                    "Hamstrings acting concentrically",
+                    "Quadriceps acting eccentrically",
+                    "Hamstrings acting eccentrically",
+                    "Quadriceps acting concentrically"
+                ],
+                answer: 1,
+                explanation: "Page 48"
+            },
+            {
+                question: "During Initial Swing, which muscle contracts to bring the ankle into a neutral or dorsiflexed position for foot clearance?",
+                options: [
+                    "Triceps surae",
+                    "Rectus femoris",
+                    "Adductor longus",
+                    "Tibialis anterior"
+                ],
+                answer: 3,
+                explanation: "Page 50"
+            },
+            {
+                question: "During Mid-swing, flexion of the hip continues. Which muscle is primarily responsible for the active contraction causing this flexion?",
+                options: [
+                    "Gluteus maximus",
+                    "Hamstrings",
+                    "Iliopsoas",
+                    "Quadriceps"
+                ],
+                answer: 2,
+                explanation: "Page 51"
+            },
+            {
+                question: "During Mid-swing, what is the required muscle activity at the knee joint?",
+                options: [
+                    "Vigorous concentric contraction of the quadriceps",
+                    "Vigorous concentric contraction of the hamstrings",
+                    "Eccentric contraction of the quadriceps",
+                    "No muscle contraction is needed (motion continues passively)"
+                ],
+                answer: 3,
+                explanation: "Page 51"
+            }
+        ];
+
+        // Function to shuffle an array (Fisher-Yates algorithm)
+        function shuffleArray(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+            return array;
+        }
+
+        // Function to create a randomized version of the quiz data
+        function createRandomizedQuizData() {
+            const randomizedData = [];
+            
+            originalQuizData.forEach(question => {
+                // Create a copy of the original question
+                const randomizedQuestion = {
+                    question: question.question,
+                    options: [...question.options], // Copy options array
+                    originalAnswer: question.answer, // Store original answer index
+                    explanation: question.explanation
+                };
+                
+                // Create an array of indices [0, 1, 2, 3]
+                const indices = [0, 1, 2, 3];
+                
+                // Shuffle the indices
+                shuffleArray(indices);
+                
+                // Create a new options array with shuffled order
+                const shuffledOptions = indices.map(index => question.options[index]);
+                
+                // Find the new position of the correct answer
+                const newAnswerIndex = indices.indexOf(question.answer);
+                
+                // Update the question with shuffled options and new answer
+                randomizedQuestion.options = shuffledOptions;
+                randomizedQuestion.answer = newAnswerIndex;
+                
+                randomizedData.push(randomizedQuestion);
+            });
+            
+            return randomizedData;
+        }
+
+        // Create randomized quiz data        let quizData = createRandomizedQuizData();
+
+        // Quiz state variables
+        let currentQuestion = 0;
+        let score = 0;
+        let userAnswers = new Array(quizData.length).fill(null);
+        let incorrectQuestions = [];
+
+        // DOM elements
+        const quizContainer = document.getElementById('quiz-container');
+        const prevBtn = document.getElementById('prev-btn');
+        const nextBtn = document.getElementById('next-btn');
+        const progressBar = document.getElementById('progress-bar');
+        const currentQuestionEl = document.getElementById('current-question');
+        const totalQuestionsEl = document.getElementById('total-questions');
+        const scoreEl = document.getElementById('score');
+        const totalScoreEl = document.getElementById('total-score');
+        const resultsContainer = document.getElementById('results');
+        const finalScoreEl = document.getElementById('final-score');
+        const performanceMessageEl = document.getElementById('performance-message');
+        const restartBtn = document.getElementById('restart-btn');
+        const reviewBtn = document.getElementById('review-btn');
+        const reviewSection = document.getElementById('review-section');
+        const incorrectQuestionsList = document.getElementById('incorrect-questions-list');
+        const darkModeToggle = document.getElementById('dark-mode-toggle');
+        const lightText = document.querySelector('.light-text');
+        const darkText = document.querySelector('.dark-text');
+
+        // Initialize quiz
+        function initQuiz() {
+            totalQuestionsEl.textContent = quizData.length;
+            totalScoreEl.textContent = quizData.length;
+            showQuestion();
+            updateProgressBar();
+            
+            // Initialize dark mode based on system preference
+            if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                document.body.classList.add('dark-mode');
+                darkModeToggle.checked = true;
+                updateToggleText(true);
+            } else {
+                updateToggleText(false);
+            }
+            
+            // Event listeners
+            prevBtn.addEventListener('click', showPreviousQuestion);
+            nextBtn.addEventListener('click', showNextQuestion);
+            restartBtn.addEventListener('click', restartQuiz);
+            reviewBtn.addEventListener('click', showIncorrectQuestions);
+            darkModeToggle.addEventListener('change', toggleDarkMode);
+        }
+
+        // Toggle dark mode
+        function toggleDarkMode() {
+            const isDarkMode = darkModeToggle.checked;
+            document.body.classList.toggle('dark-mode', isDarkMode);
+            updateToggleText(isDarkMode);
+        }
+
+        // Update toggle text opacity
+        function updateToggleText(isDarkMode) {
+            if (isDarkMode) {
+                lightText.style.opacity = '0.5';
+                darkText.style.opacity = '1';
+            } else {
+                lightText.style.opacity = '1';
+                darkText.style.opacity = '0.5';
+            }
+        }
+
+        // Show current question
+        function showQuestion() {
+            currentQuestionEl.textContent = currentQuestion + 1;
+            scoreEl.textContent = score;
+            
+            const question = quizData[currentQuestion];
+            let optionsHTML = '';
+            
+            question.options.forEach((option, index) => {
+                let optionClass = 'option';
+                if (userAnswers[currentQuestion] === index) {
+                    optionClass += ' selected';
+                    if (index === question.answer) {
+                        optionClass += ' correct';
+                    } else {
+                        optionClass += ' incorrect';
+                    }
+                }
+                
+                optionsHTML += `
+                    <div class="${optionClass}" data-index="${index}">
+                        ${String.fromCharCode(65 + index)}) ${option}
+                    </div>
+                `;
+            });
+            
+            let feedbackHTML = '';
+            if (userAnswers[currentQuestion] !== null) {
+                const isCorrect = userAnswers[currentQuestion] === question.answer;
+                const correctLetter = String.fromCharCode(65 + question.answer);
+                const correctAnswerText = question.options[question.answer];
+                
+                feedbackHTML = `
+                    <div class="feedback ${isCorrect ? 'correct' : 'incorrect'}">
+                        ${isCorrect ? '✓ Correct!' : '✗ Incorrect!'} 
+                        ${!isCorrect ? `Correct answer: ${correctLetter}) ${correctAnswerText}` : ''}
+                        <br><br>Explanation: ${question.explanation}
+                    </div>
+                `;
+            }
+            
+            quizContainer.innerHTML = `
+                <div class="question">
+                    <div class="question-number">Question ${currentQuestion + 1}/${quizData.length}</div>
+                    <div class="question-text">${question.question}</div>
+                    <div class="options">${optionsHTML}</div>
+                    ${feedbackHTML}
+                </div>
+            `;
+            
+            // Add event listeners to options
+            const optionElements = quizContainer.querySelectorAll('.option');
+            optionElements.forEach(option => {
+                option.addEventListener('click', selectOption);
+            });
+            
+            // Update navigation buttons
+            prevBtn.disabled = currentQuestion === 0;
+            nextBtn.textContent = currentQuestion === quizData.length - 1 ? 'Finish Quiz' : 'Next';
+        }
+
+        // Select an option
+        function selectOption(e) {
+            if (userAnswers[currentQuestion] !== null) return; // Already answered
+            
+            const selectedOption = e.currentTarget;
+            const selectedIndex = parseInt(selectedOption.dataset.index);
+            
+            userAnswers[currentQuestion] = selectedIndex;
+            
+            // Check if answer is correct
+            if (selectedIndex === quizData[currentQuestion].answer) {
+                score++;
+                scoreEl.textContent = score;
+            } else {
+                // Add to incorrect questions list
+                incorrectQuestions.push({
+                    question: quizData[currentQuestion].question,
+                    userAnswer: selectedIndex,
+                    correctAnswer: quizData[currentQuestion].answer,
+                    options: quizData[currentQuestion].options,
+                    explanation: quizData[currentQuestion].explanation,
+                    questionNumber: currentQuestion + 1
+                });
+            }
+            
+            showQuestion();
+            updateProgressBar();
+        }
+
+        // Show next question
+        function showNextQuestion() {
+            if (currentQuestion < quizData.length - 1) {
+                currentQuestion++;
+                showQuestion();
+            } else {
+                showResults();
+            }
+        }
+
+        // Show previous question
+        function showPreviousQuestion() {
+            if (currentQuestion > 0) {
+                currentQuestion--;
+                showQuestion();
+            }
+        }
+
+        // Update progress bar
+        function updateProgressBar() {
+            const progress = ((currentQuestion + 1) / quizData.length) * 100;
+            progressBar.style.width = `${progress}%`;
+        }
+
+        // Show results
+        function showResults() {
+            quizContainer.style.display = 'none';
+            document.querySelector('.navigation').style.display = 'none';
+            document.querySelector('.progress-container').style.display = 'none';
+            document.querySelector('.stats').style.display = 'none';
+            
+            finalScoreEl.textContent = score;
+            
+            // Performance message
+            const percentage = (score / quizData.length) * 100;
+            let message = '';
+            if (percentage >= 80) {
+                message = 'Excellent! You have a strong understanding of Gait Kinematics and Kinetics.';
+            } else if (percentage >= 60) {
+                message = 'Good job! You have a solid grasp of the material.';
+            } else if (percentage >= 40) {
+                message = 'Not bad! Review the material and try again.';
+            } else {
+                message = 'Keep studying! Review the lectures and try again.';
+            }
+            
+            performanceMessageEl.textContent = message;
+            resultsContainer.style.display = 'block';
+            
+            // Show review button only if there are incorrect answers
+            if (incorrectQuestions.length > 0) {
+                reviewBtn.style.display = 'inline-block';
+            } else {
+                reviewBtn.style.display = 'none';
+            }
+        }
+
+        // Show incorrect questions
+        function showIncorrectQuestions() {
+            resultsContainer.style.display = 'none';
+            reviewSection.style.display = 'block';
+            
+            let incorrectHTML = '';
+            incorrectQuestions.forEach((item, index) => {
+                const correctLetter = String.fromCharCode(65 + item.correctAnswer);
+                const userLetter = String.fromCharCode(65 + item.userAnswer);
+                
+                incorrectHTML += `
+                    <div class="review-question">
+                        <div class="review-question-number">Question ${item.questionNumber}</div>
+                        <div class="review-question-text">${item.question}</div>
+                        <div>Your answer: ${userLetter}) ${item.options[item.userAnswer]}</div>
+                        <div class="review-answer review-correct">Correct answer: ${correctLetter}) ${item.options[item.correctAnswer]}</div>
+                        <div class="review-explanation">${item.explanation}</div>
+                    </div>
+                `;
+            });
+            
+            incorrectQuestionsList.innerHTML = incorrectHTML;
+        }
+
+        // Restart quiz
+        function restartQuiz() {
+            currentQuestion = 0;
+            score = 0;
+            userAnswers = new Array(quizData.length).fill(null);
+            incorrectQuestions = [];
+            
+            // Re-randomize the quiz data when restarting
+            quizData = createRandomizedQuizData();
+            
+            quizContainer.style.display = 'block';
+            document.querySelector('.navigation').style.display = 'flex';
+            document.querySelector('.progress-container').style.display = 'block';
+            document.querySelector('.stats').style.display = 'flex';
+            resultsContainer.style.display = 'none';
+            reviewSection.style.display = 'none';
+            
+            showQuestion();
+            updateProgressBar();
+        }
+
+        // Initialize the quiz when the page loads
+        window.onload = initQuiz;
+    </script>
+</body>
+</html>
